@@ -217,21 +217,27 @@ elseif ($operacao=="Excluir"){
 
     }
 
+    echo $petShop[$indice];
+
     //----------------------------------------------
     // Excluir
     //----------------------------------------------
 
     //comando que exclui do vetor
-    unset($petShop[$indice]);
+    if($petShop[$indice]==0){
+        array_pop($petShop);
+    } else {
+        unset($petShop[$indice]);
+    }
      
 
     //Converter PHP para Json
-    $petShop = json_encode($petShop);
+    $petShopJSON = json_encode($petShop);
 
     //SALVAR
     file_put_contents($nomeArquivo, $petShopJSON);
 
-    echo "<h3> Dados excluído com sucesso! </h3>";
+    echo "<h3> Dados excluídos com sucesso! </h3>";
 
     //quando chegar nessa instrução ele vai ser direcionado para a página que eu informar
     header("Location: principal.php");
