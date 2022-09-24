@@ -60,14 +60,14 @@ if(isset($_REQUEST["txtAreaSugestoesReclamacoes"])){
     }
 }
 
-echo "Operacao: $operacao <br>";
-echo "Nome cliente: $nomeCliente <br>";
-echo "Telefone: $telefone <br>";
-echo "nomeAnimal: $nomeAnimal <br>";
-echo "idadeAnimal: $idadeAnimal <br>";
-echo "atendimento: $atendimento <br>";
-echo "pet: $pet <br>";
-echo "Sugestoes ou reclamacoes: $sugestoesReclamacoes <br>";
+// echo "Operacao: $operacao <br>";
+// echo "Nome cliente: $nomeCliente <br>";
+// echo "Telefone: $telefone <br>";
+// echo "nomeAnimal: $nomeAnimal <br>";
+// echo "idadeAnimal: $idadeAnimal <br>";
+// echo "atendimento: $atendimento <br>";
+// echo "pet: $pet <br>";
+// echo "Sugestoes ou reclamacoes: $sugestoesReclamacoes <br>";
 
 
 //----------------------------------------------
@@ -132,96 +132,121 @@ if($operacao=="Submit"){
     echo "<h3> Dados salvos com sucesso! </h3>";
 
     //quando chegar nessa instrução ele vai ser direcionado para a página que eu informar
-    //header("Location: principal.php");
+    header("Location: principal.php");
     die();
     
 }
-// elseif ($operacao=="Alterar"){
+elseif ($operacao=="Reset"){
     
-//     if(empty($codDisciplina)){
-//         echo "<h2>Por favor informe o código da disciplina.</h2>";
-//         echo "<p> <a href= '39-JSON-Enviar.php'> Clique aqui para voltar. </a>";
-//         die();
-//     }
-//     if(empty($disciplina)){
-//         echo "<h2>Por favor informe o nome da disciplina.</h2>";
-//         echo "<p> <a href= '39-JSON-Enviar.php'> Clique aqui para voltar. </a>";
-//         die();
-//     }
+    if(empty($nomeCliente)){
+        echo "<h2>Por favor informe o nome do cliente.</h2>";
+        echo "<p> <a href= 'principal.php'> Clique aqui para voltar. </a> </p>";
+        die();
+    }
+    if(empty($telefone)){
+        echo "<h2>Por favor informe o telefone.</h2>";
+        echo "<p> <a href= 'principal.php'> Clique aqui para voltar. </a> </p>";
+        die();
+    }
+    if(empty($nomeAnimal)){
+        echo "<h2>Por favor informe o nome do animal.</h2>";
+        echo "<p> <a href= 'principal.php'> Clique aqui para voltar. </a> </p>";
+        die();
+    }
+    if(empty($idadeAnimal)){
+        echo "<h2>Por favor informe a idade do animal.</h2>";
+        echo "<p> <a href= 'principal.php'> Clique aqui para voltar. </a> </p>";
+        die();
+    }
+    if(empty($atendimento)){
+        echo "<h2>Por favor selecione o atendimento.</h2>";
+        echo "<p> <a href= 'principal.php'> Clique aqui para voltar. </a> </p>";
+        die();
+    }
+    if(empty($pet)){
+        echo "<h2>Por favor selecione o tipo de pet.</h2>";
+        echo "<p> <a href= 'principal.php'> Clique aqui para voltar. </a> </p>";
+        die();
+    }
 
-//     if (file_exists($nomeArquivo)){
-//         //Recupera os dados
-//         $disciplinaJSON = file_get_contents($nomeArquivo);
+    if (file_exists($nomeArquivo)){
+        //Recupera os dados
+        $petShopJSON = file_get_contents($nomeArquivo);
 
-//         //Converter JSON em PHP
-//         $disciplinas = json_decode($disciplinaJSON, true);
+        //Converter JSON em PHP
+        $petShop = json_decode($petShopJSON, true);
 
-//     }
+    }
 
-//     //----------------------------------------------
-//     // Alterar
-//     //----------------------------------------------
+    //----------------------------------------------
+    // Alterar
+    //----------------------------------------------
 
-//     $disciplinas[$indice]['CodDisciplina'] = $codDisciplina;
-//     $disciplinas[$indice]['Disciplina'] = $disciplina;
+    $petShop[$indice]['NomeCliente'] = $nomeCliente;
+    $petShop[$indice]['Telefone'] = $telefone;
+    $petShop[$indice]['NomeAnimal'] = $nomeAnimal;
+    $petShop[$indice]['NumIdadeAnimal'] = $idadeAnimal;
+    $petShop[$indice]['Atendimento'] = $atendimento;
+    $petShop[$indice]['Pet'] = $pet;
+    $petShop[$indice]['SugestoesReclamacoes'] = $sugestoesReclamacoes;
+    
+    //print_r($petShop);
+    //die();
 
-//     //print_r($disciplinas);
-//     //die();
 
+    //Converter PHP para Json
+    $petShopJSON = json_encode($petShop);
 
-//     //Converter PHP para Json
-//     $disciplinaJSON = json_encode($disciplinas);
+    //SALVAR
+    file_put_contents($nomeArquivo, $petShopJSON);
 
-//     //SALVAR
-//     file_put_contents($nomeArquivo, $disciplinaJSON);
+    echo "<h3> Dados salvos com sucesso! </h3>";
 
-//     echo "<h3> Dados salvos com sucesso! </h3>";
+    //quando chegar nessa instrução ele vai ser direcionado para a página que eu informar
+    header("Location: principal.php");
+    die();
+}
 
-//     //quando chegar nessa instrução ele vai ser direcionado para a página que eu informar
-//     header("Location: 39-JSON-Enviar.php");
-//     die();
-// }
+elseif ($operacao=="Excluir"){
+    if (file_exists($nomeArquivo)){
+        //Recupera os dados
+        $petShopJSON = file_get_contents($nomeArquivo);
 
-// elseif ($operacao=="Excluir"){
-//     if (file_exists($nomeArquivo)){
-//         //Recupera os dados
-//         $disciplinaJSON = file_get_contents($nomeArquivo);
+        //Converter JSON em PHP
+        $petShop = json_decode($petShopJSON, true);
 
-//         //Converter JSON em PHP
-//         $disciplinas = json_decode($disciplinaJSON, true);
+    }
 
-//     }
+    //----------------------------------------------
+    // Excluir
+    //----------------------------------------------
 
-//     //----------------------------------------------
-//     // Excluir
-//     //----------------------------------------------
-
-//     //comando que exclui do vetor
-//     unset($disciplinas[$indice]);
+    //comando que exclui do vetor
+    unset($petShop[$indice]);
      
 
-//     //Converter PHP para Json
-//     $disciplinaJSON = json_encode($disciplinas);
+    //Converter PHP para Json
+    $petShop = json_encode($petShop);
 
-//     //SALVAR
-//     file_put_contents($nomeArquivo, $disciplinaJSON);
+    //SALVAR
+    file_put_contents($nomeArquivo, $petShopJSON);
 
-//     echo "<h3> Dados excluído com sucesso! </h3>";
+    echo "<h3> Dados excluído com sucesso! </h3>";
 
-//     //quando chegar nessa instrução ele vai ser direcionado para a página que eu informar
-//     header("Location: principal.php");
-//     die();
-// }
+    //quando chegar nessa instrução ele vai ser direcionado para a página que eu informar
+    header("Location: principal.php");
+    die();
+}
 
-// elseif ($operacao=="Cancelar"){
-//     //quando chegar nessa instrução ele vai ser direcionado para a página que eu informar
-//     header("Location: principal.php");
-//     die();
-// }
-// else {
-//     echo "<h2>Operação não cadastrada</h2>";
-//     echo "<p> <a href= 'principal.php'> Clique aqui para voltar. </a>";
-//     die();
-// }
+elseif ($operacao=="Cancelar"){
+    //quando chegar nessa instrução ele vai ser direcionado para a página que eu informar
+    header("Location: principal.php");
+    die();
+}
+else {
+    echo "<h2>Operação não cadastrada</h2>";
+    echo "<p> <a href= 'principal.php'> Clique aqui para voltar. </a> </p>";
+    die();
+}
 
 ?>

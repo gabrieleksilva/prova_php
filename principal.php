@@ -116,14 +116,14 @@ if (file_exists($nomeArquivo)) {
                                 if (!empty($petShop)) {
                                     //$petShopKey essa váriavel que me passa o índice
                                     foreach ($petShop as $petShopKey => $petShopValor) {
-                                         //echo "Índice: " . $petShopKey . "<br>";
-                                         echo "nomeCliente: " . $petShopValor['NomeCliente'] . "<br>";
-                                         echo "telefone: " . $petShopValor['Telefone'] . "<br>";
-                                         echo "nomeAnimal: " . $petShopValor['NomeAnimal'] . "<br>";
-                                         echo "idadeAnimal: " . $petShopValor['NumIdadeAnimal'] . "<br>";
-                                         echo "atendimento: " . $petShopValor['Atendimento'] . "<br>";
-                                         echo "pet: " . $petShopValor['Pet'] . "<br>";
-                                         echo "sugestoesReclamacoes: " . $petShopValor['SugestoesReclamacoes'] . "<br>";
+                                        //echo "Índice: " . $petShopKey . "<br>";
+                                        //  echo "nomeCliente: " . $petShopValor['NomeCliente'] . "<br>";
+                                        //  echo "telefone: " . $petShopValor['Telefone'] . "<br>";
+                                        //  echo "nomeAnimal: " . $petShopValor['NomeAnimal'] . "<br>";
+                                        //  echo "idadeAnimal: " . $petShopValor['NumIdadeAnimal'] . "<br>";
+                                        //  echo "atendimento: " . $petShopValor['Atendimento'] . "<br>";
+                                        //  echo "pet: " . $petShopValor['Pet'] . "<br>";
+                                        //  echo "sugestoesReclamacoes: " . $petShopValor['SugestoesReclamacoes'] . "<br>";
 
                                         echo "<tr>";
                                         //echo "<td>$petShopKey</td> ";
@@ -135,8 +135,8 @@ if (file_exists($nomeArquivo)) {
                                         echo "<td>" . $petShopValor['Pet'] . "</td> ";
                                         echo "<td>" . $petShopValor['SugestoesReclamacoes'] . "</td> ";
                                         //passando dados para outra página ? nessa estrutura chave/valor
-                                        echo "<td><a href='41-JSON-Alterar.php?indice=$petShopKey'>Alterar</a></td> ";
-                                        echo "<td><a href='42-JSON-Excluir.php?indice=$petShopKey'>Excluir</a>-</td> ";
+                                        echo "<td><a href='alterar.php?indice=$petShopKey'>Alterar</a></td> ";
+                                        echo "<td><a href='excluir.php?indice=$petShopKey'>Excluir</a>-</td> ";
                                         echo "</tr>";
                                     }
                                 }
