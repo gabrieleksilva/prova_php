@@ -121,7 +121,7 @@ if($operacao=="Submit"){
     // Adicionar
     //----------------------------------------------
 
-    $petShop[] = ['txtNomeCliente' => $nomeCliente, 'txtTelefone' => $telefone, 'txtNomeAnimal' => $nomeAnimal, 'numIdadeAnimal' => $idadeAnimal, 'selectAtendimento' => $atendimento, 'rdoPet' => $pet, 'txtAreaSugestoesReclamacoes' => $sugestoesReclamacoes];
+    $petShop[] = ['NomeCliente' => $nomeCliente, 'Telefone' => $telefone, 'NomeAnimal' => $nomeAnimal, 'NumIdadeAnimal' => $idadeAnimal, 'Atendimento' => $atendimento, 'Pet' => $pet, 'SugestoesReclamacoes' => $sugestoesReclamacoes];
 
     //Converter PHP para Json
     $petShopJSON = json_encode($petShop);

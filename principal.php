@@ -5,10 +5,10 @@ $nomeArquivo = "C:\xTemp\PetShop.json";
 if (file_exists($nomeArquivo)) {
 
     //Recupera os dados
-    $disciplinaJSON = file_get_contents($nomeArquivo);
+    $petShopJSON = file_get_contents($nomeArquivo);
 
     //Converter JSON em PHP
-    $disciplinas = json_decode($disciplinaJSON, true);
+    $petShop = json_decode($petShopJSON, true);
 }
 ?>
 
@@ -43,7 +43,7 @@ if (file_exists($nomeArquivo)) {
         <div class="col-6 mb-2 bg-warning text-dark">
             <div class="card">
                 <div class="card-body">
-                    <h2>Formulário para fazer agendamento</h2>
+                    <h2>Formulário de cadastro</h2>
                     <form action="processamento.php" method="REQUEST">
                         <div class="form-group">
                             <label for="nomeCliente">Nome do cliente:</label>
@@ -62,7 +62,7 @@ if (file_exists($nomeArquivo)) {
                             <input type="number" class="form-control" name="numIdadeAnimal" id="idadeAnimal" placeholder="Digite a idade..">
                         </div>
                         <div class="form-group">
-                            <label for="atendimento">Atendimento</label>
+                            <label for="atendimento">Atendimento de interesse</label>
                             <select name="selectAtendimento">
                                 <option value="">Selecione o atendimento</option>
                                 <option value="Banho_&_Tosa">Banho & Tosa</option>
@@ -100,32 +100,46 @@ if (file_exists($nomeArquivo)) {
 
                             <table>
                                 <tr>
-                                    <th>Cliente</th>
-                                    <th>Código</th>
-                                    <th>Disciplina</th>
+                                    <th>Nome cliente</th>
+                                    <th>Telefone</th>
+                                    <th>Nome animal</th>
+                                    <th>Idade animal</th>
+                                    <th>Atendimento</th>
+                                    <th>Pet</th>
+                                    <th>Sugestões ou reclamações</th>
                                     <th>Alterar</th>
                                     <th>Excluir</th>
                                 </tr>
 
                                 <?php
 
-                                // if (!empty($disciplinas)) {
-                                //     //$disciplinaKey essa váriavel que me passa o índice
-                                //     foreach ($disciplinas as $disciplinaKey => $disciplinaValor) {
-                                //         // echo "Índice: " . $disciplinaKey . "<br>";
-                                //         // echo "Cód Disciplina: " . $disciplinaValor['CodDisciplina'] . "<br>";
-                                //         // echo "Disciplina: " . $disciplinaValor['Disciplina'] . "<br>";
+                                if (!empty($petShop)) {
+                                    //$petShopKey essa váriavel que me passa o índice
+                                    foreach ($petShop as $petShopKey => $petShopValor) {
+                                         //echo "Índice: " . $petShopKey . "<br>";
+                                         echo "nomeCliente: " . $petShopValor['NomeCliente'] . "<br>";
+                                         echo "telefone: " . $petShopValor['Telefone'] . "<br>";
+                                         echo "nomeAnimal: " . $petShopValor['NomeAnimal'] . "<br>";
+                                         echo "idadeAnimal: " . $petShopValor['NumIdadeAnimal'] . "<br>";
+                                         echo "atendimento: " . $petShopValor['Atendimento'] . "<br>";
+                                         echo "pet: " . $petShopValor['Pet'] . "<br>";
+                                         echo "sugestoesReclamacoes: " . $petShopValor['SugestoesReclamacoes'] . "<br>";
 
-                                //         echo "<tr>";
-                                //         echo "<td>$disciplinaKey</td> ";
-                                //         echo "<td>" . $disciplinaValor['CodDisciplina'] . "</td> ";
-                                //         echo "<td>" . $disciplinaValor['Disciplina'] . "</td> ";
-                                //         //passando dados para outra página ? nessa estrutura chave/valor
-                                //         echo "<td><a href='41-JSON-Alterar.php?indice=$disciplinaKey'>Alterar</a></td> ";
-                                //         echo "<td><a href='42-JSON-Excluir.php?indice=$disciplinaKey'>Excluir</a>-</td> ";
-                                //         echo "</tr>";
-                                //     }
-                                // }
+                                        echo "<tr>";
+                                        //echo "<td>$petShopKey</td> ";
+                                        echo "<td>" . $petShopValor['NomeCliente'] . "</td> ";
+                                        echo "<td>" . $petShopValor['Telefone'] . "</td> ";
+                                        echo "<td>" . $petShopValor['NomeAnimal'] . "</td> ";
+                                        echo "<td>" . $petShopValor['NumIdadeAnimal'] . "</td> ";
+                                        echo "<td>" . $petShopValor['Atendimento'] . "</td> ";
+                                        echo "<td>" . $petShopValor['Pet'] . "</td> ";
+                                        echo "<td>" . $petShopValor['SugestoesReclamacoes'] . "</td> ";
+                                        //passando dados para outra página ? nessa estrutura chave/valor
+                                        echo "<td><a href='41-JSON-Alterar.php?indice=$petShopKey'>Alterar</a></td> ";
+                                        echo "<td><a href='42-JSON-Excluir.php?indice=$petShopKey'>Excluir</a>-</td> ";
+                                        echo "</tr>";
+                                    }
+                                }
 
 
                                 ?>
