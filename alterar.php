@@ -120,7 +120,7 @@
                     </div>
                     <br>
                     <button class="btn btn-primary" name="btnOperacao" type="submit" value="Reset">Alterar</button>
-                    <button class="btn btn-primary" name="btnOperacao" type="submit" value="Submit">Cancelar</button>
+                    <button class="btn btn-primary" name="btnOperacao" type="submit" value="Cancelar">Cancelar</button>
 
                 </form>
             </div>
