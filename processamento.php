@@ -9,6 +9,7 @@ $nomeAnimal = "";
 $idadeAnimal = 0;
 $atendimento = "";
 $pet = "";
+$indice = 0;
 $sugestoesReclamacoes = "";
 
 $nomeArquivo = "C:\xTemp\PetShop.json";
@@ -59,52 +60,45 @@ if(isset($_REQUEST["txtAreaSugestoesReclamacoes"])){
         $sugestoesReclamacoes = $_REQUEST["txtAreaSugestoesReclamacoes"];
     }
 }
-
-// echo "Operacao: $operacao <br>";
-// echo "Nome cliente: $nomeCliente <br>";
-// echo "Telefone: $telefone <br>";
-// echo "nomeAnimal: $nomeAnimal <br>";
-// echo "idadeAnimal: $idadeAnimal <br>";
-// echo "atendimento: $atendimento <br>";
-// echo "pet: $pet <br>";
-// echo "Sugestoes ou reclamacoes: $sugestoesReclamacoes <br>";
-
+if(isset($_REQUEST["txtIndice"])){
+    if(!empty($_REQUEST["txtIndice"])){
+        $indice = $_REQUEST["txtIndice"];
+    }
+}
 
 //----------------------------------------------
 // PROCESSAR OS DADOS
 //----------------------------------------------
 
-
-
-if($operacao=="Submit"){
+if($operacao=="inserir"){
     if(empty($nomeCliente)){
         echo "<h2>Por favor informe o nome do cliente.</h2>";
-        echo "<p> <a href= 'principal.php'> Clique aqui para voltar. </a>";
+        echo "<p><a href='principal.php'>Clique aqui para voltar. </a></p>";
         die();
     }
     if(empty($telefone)){
         echo "<h2>Por favor informe o telefone.</h2>";
-        echo "<p> <a href= 'principal.php'> Clique aqui para voltar. </a>";
+        echo "<p><a href='principal.php'>Clique aqui para voltar. </a></p>";
         die();
     }
     if(empty($nomeAnimal)){
         echo "<h2>Por favor informe o nome do animal.</h2>";
-        echo "<p> <a href= 'principal.php'> Clique aqui para voltar. </a>";
+        echo "<p><a href='principal.php'>Clique aqui para voltar. </a></p>";
         die();
     }
     if(empty($idadeAnimal)){
         echo "<h2>Por favor informe a idade do animal.</h2>";
-        echo "<p> <a href= 'principal.php'> Clique aqui para voltar. </a>";
+        echo "<p><a href='principal.php'>Clique aqui para voltar. </a></p>";
         die();
     }
     if(empty($atendimento)){
         echo "<h2>Por favor selecione o atendimento.</h2>";
-        echo "<p> <a href= 'principal.php'> Clique aqui para voltar. </a>";
+        echo "<p><a href='principal.php'>Clique aqui para voltar. </a></p>";
         die();
     }
     if(empty($pet)){
         echo "<h2>Por favor selecione o tipo de pet.</h2>";
-        echo "<p> <a href= 'principal.php'> Clique aqui para voltar. </a>";
+        echo "<p><a href='principal.php'>Clique aqui para voltar. </a></p>";
         die();
     }
 
@@ -136,36 +130,36 @@ if($operacao=="Submit"){
     die();
     
 }
-elseif ($operacao=="Reset"){
+elseif ($operacao=="Alterar"){
     
     if(empty($nomeCliente)){
         echo "<h2>Por favor informe o nome do cliente.</h2>";
-        echo "<p> <a href= 'principal.php'> Clique aqui para voltar. </a> </p>";
+        echo "<p><a href='principal.php'> Clique aqui para voltar. </a></p>";
         die();
     }
     if(empty($telefone)){
         echo "<h2>Por favor informe o telefone.</h2>";
-        echo "<p> <a href= 'principal.php'> Clique aqui para voltar. </a> </p>";
+        echo "<p><a href='principal.php'> Clique aqui para voltar. </a></p>";
         die();
     }
     if(empty($nomeAnimal)){
         echo "<h2>Por favor informe o nome do animal.</h2>";
-        echo "<p> <a href= 'principal.php'> Clique aqui para voltar. </a> </p>";
+        echo "<p><a href='principal.php'> Clique aqui para voltar. </a></p>";
         die();
     }
     if(empty($idadeAnimal)){
         echo "<h2>Por favor informe a idade do animal.</h2>";
-        echo "<p> <a href= 'principal.php'> Clique aqui para voltar. </a> </p>";
+        echo "<p><a href='principal.php'> Clique aqui para voltar. </a></p>";
         die();
     }
     if(empty($atendimento)){
         echo "<h2>Por favor selecione o atendimento.</h2>";
-        echo "<p> <a href= 'principal.php'> Clique aqui para voltar. </a> </p>";
+        echo "<p><a href='principal.php'> Clique aqui para voltar. </a></p>";
         die();
     }
     if(empty($pet)){
         echo "<h2>Por favor selecione o tipo de pet.</h2>";
-        echo "<p> <a href= 'principal.php'> Clique aqui para voltar. </a> </p>";
+        echo "<p><a href='principal.php'> Clique aqui para voltar. </a></p>";
         die();
     }
 
@@ -175,7 +169,6 @@ elseif ($operacao=="Reset"){
 
         //Converter JSON em PHP
         $petShop = json_decode($petShopJSON, true);
-
     }
 
     //----------------------------------------------
@@ -189,18 +182,14 @@ elseif ($operacao=="Reset"){
     $petShop[$indice]['Atendimento'] = $atendimento;
     $petShop[$indice]['Pet'] = $pet;
     $petShop[$indice]['SugestoesReclamacoes'] = $sugestoesReclamacoes;
-    
-    //print_r($petShop);
-    //die();
-
-
+   
     //Converter PHP para Json
     $petShopJSON = json_encode($petShop);
 
     //SALVAR
     file_put_contents($nomeArquivo, $petShopJSON);
 
-    echo "<h3> Dados salvos com sucesso! </h3>";
+    echo "<h3> Dados alterados com sucesso! </h3>";
 
     //quando chegar nessa instrução ele vai ser direcionado para a página que eu informar
     header("Location: principal.php");
@@ -217,18 +206,17 @@ elseif ($operacao=="Excluir"){
 
     }
 
-    echo $petShop[$indice];
-
     //----------------------------------------------
     // Excluir
     //----------------------------------------------
 
+    unset($petShop[$indice]);
     //comando que exclui do vetor
-    if($petShop[$indice]==0){
-        array_pop($petShop);
-    } else {
-        unset($petShop[$indice]);
-    }
+    // if($petShop[$indice]==0){
+    //     array_pop($petShop);
+    // } else {
+    //     unset($petShop[$indice]);
+    // }
      
 
     //Converter PHP para Json

@@ -1,83 +1,75 @@
-
 <?php
-    //----------------------------------------------
-    // RECUPERA OS DADOS
-    //----------------------------------------------
-    $indice = 0;
-    $operacao = "";
-    $nomeCliente = "";
-    $telefone = "";
-    $nomeAnimal = "";
-    $idadeAnimal = 0;
-    $atendimento = "";
-    $pet = "";
-    $sugestoesReclamacoes = "";
+//----------------------------------------------
+// RECUPERA OS DADOS
+//----------------------------------------------
+$indice = 0;
+$operacao = "";
+$nomeCliente = "";
+$telefone = "";
+$nomeAnimal = "";
+$idadeAnimal = 0;
+$atendimento = "";
+$pet = "";
+$sugestoesReclamacoes = "";
 
-    if (isset($_REQUEST["indice"])){
-        if(!empty($_REQUEST["indice"])){
-            $indice = $_REQUEST["indice"];
-        }
+if (isset($_REQUEST["indice"])) {
+    if (!empty($_REQUEST["indice"])) {
+        $indice = $_REQUEST["indice"];
     }
-    //echo "Índice: $indice <br>";
+}
 
-    $nomeArquivo = "C:\xTemp\PetShop.json";
+$nomeArquivo = "C:\xTemp\PetShop.json";
 
-    //Se o arquivo existir eu recupero o arquivo
-    if (file_exists($nomeArquivo)) {
+//Se o arquivo existir eu recupero o arquivo
+if (file_exists($nomeArquivo)) {
+    //Recupera os dados
+    $petShopJSON = file_get_contents($nomeArquivo);
+}
+//Converter JSON em PHP
+$petShop = json_decode($petShopJSON, true);
 
-        //Recupera os dados
-        $petShopJSON = file_get_contents($nomeArquivo);
-
-        //Converter JSON em PHP
-        $petShop = json_decode($petShopJSON, true);
-    }
-
-    $nomeCliente = $petShop[$indice]['NomeCliente'];
-    $telefone = $petShop[$indice]['Telefone'];
-    $nomeAnimal = $petShop[$indice]['NomeAnimal'];
-    $idadeAnimal = $petShop[$indice]['NumIdadeAnimal'];
-    $atendimento = $petShop[$indice]['Atendimento'];
-    $pet = $petShop[$indice]['Pet'];
-    $sugestoesReclamacoes = $petShop[$indice]['SugestoesReclamacoes'];
-
-    echo "Índice: $indice <br>";
-    echo "Nome cliente: $nomeCliente <br>";
-    echo "Telefone: $telefone <br>";
-    echo "Nome animal: $nomeAnimal <br>";
-    echo "Idade animal: $idadeAnimal <br>";
-    echo "Atendimento: $atendimento <br>";
-    echo "Pet: $pet <br>";
-    echo "Sugestoes Reclamacoes: $sugestoesReclamacoes <br>";
-
+$nomeCliente = $petShop[$indice]['NomeCliente'];
+$telefone = $petShop[$indice]['Telefone'];
+$nomeAnimal = $petShop[$indice]['NomeAnimal'];
+$idadeAnimal = $petShop[$indice]['NumIdadeAnimal'];
+$atendimento = $petShop[$indice]['Atendimento'];
+$pet = $petShop[$indice]['Pet'];
+$sugestoesReclamacoes = $petShop[$indice]['SugestoesReclamacoes'];
 ?>
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>Excluir cadastro</title>
 </head>
+
 <body>
     <div class="col-6 mb-2 bg-warning text-dark">
-            <div class="card">
-                <div class="card-body">
-                    <h2>Exclusão de cadastro</h2>
-                    <form action="processamento.php" method="GET">
+        <div class="card">
+            <div class="card-body">
+                <h2>Exclusão de cadastro</h2>
+                <form action="processamento.php" method="REQUEST">
+                    <p>
+                        Índice &ensp;<input type="text" name="txtIndice" readonly value="<?php echo $indice; ?>">
+                    </p>
                     <div class="form-group">
+
                         <label for="nomeCliente">Nome do cliente:</label>
-                        <input type="text" class="form-control" name="txtNomeCliente" id="nomeCliente" readonly value= "<?php echo $nomeCliente; ?>">
+                        <input type="text" class="form-control" name="txtNomeCliente" readonly value="<?php echo $nomeCliente; ?>">
                     </div>
                     <div class="form-group">
                         <label for="telefone">Telefone:</label>
-                        <input class="form-control" type="text" name="txtTelefone" id="telefone" readonly value= "<?php echo $telefone; ?>">
+                        <input class="form-control" type="text" name="txtTelefone" readonly value="<?php echo $telefone; ?>">
                     </div>
                     <div class="form-group">
                         <label for="nomeAnimal">Nome do animal:</label>
-                        <input type="text" class="form-control" name="txtNomeAnimal" id="nomeAnimal" readonly value= "<?php echo $nomeAnimal; ?>">
+                        <input type="text" class="form-control" name="txtNomeAnimal" readonly value="<?php echo $nomeAnimal; ?>">
                     </div>
                     <div class="form-group">
                         <label for="idadeAnimal">Idade do animal:</label>
-                        <input type="number" class="form-control" name="numIdadeAnimal" id="idadeAnimal" readonly value= "<?php echo $idadeAnimal; ?>">
+                        <input type="number" class="form-control" name="numIdadeAnimal" readonly value="<?php echo $idadeAnimal; ?>">
                     </div>
                     <div class="form-group">
                         <label for="atendimento">Atendimento de interesse</label>
@@ -96,29 +88,28 @@
                     <div class="form-group">
 
                         <label>Pet:</label><br>
-                        <label><input type="radio" name="rdoPet" disabled value="cachorro"  <?php echo ($pet == "cachorro") ? "checked" : null; ?>/> Cachorro</label><br>
-                        <label><input type="radio" name="rdoPet" disabled value="gato" <?php echo ($pet == "gato") ? "checked" : null; ?>/> Gato</label><br>
-                        <label><input type="radio" name="rdoPet" disabled value="passarinho" <?php echo ($pet == "passarinho") ? "checked" : null; ?>/> Passaros</label><br>
-                        <label><input type="radio" name="rdoPet" disabled value="roedores" <?php echo ($pet == "roedores") ? "checked" : null; ?>/> Roedores</label><br>
+                        <label><input type="radio" name="rdoPet" disabled value="cachorro" <?php echo ($pet == "cachorro") ? "checked" : null; ?> /> Cachorro</label><br>
+                        <label><input type="radio" name="rdoPet" disabled value="gato" <?php echo ($pet == "gato") ? "checked" : null; ?> /> Gato</label><br>
+                        <label><input type="radio" name="rdoPet" disabled value="passarinho" <?php echo ($pet == "passarinho") ? "checked" : null; ?> /> Passaros</label><br>
+                        <label><input type="radio" name="rdoPet" disabled value="roedores" <?php echo ($pet == "roedores") ? "checked" : null; ?> /> Roedores</label><br>
                     </div>
 
                     <div class="form-group">
                         <label for="sugestoesReclamacoes">Sugestões ou reclamações:</label>
-                        <textarea disabled class="form-control" name="txtAreaSugestoesReclamacoes" value= ""> <?php echo $sugestoesReclamacoes; ?> </textarea>
+                        <textarea disabled class="form-control" name="txtAreaSugestoesReclamacoes" value=""> <?php echo $sugestoesReclamacoes; ?> </textarea>
                     </div>
                     <br>
                     <h2>Deseja realmente excluir os dados?</h2>
-                    <button class="btn btn-primary" name="btnOperacao" type="submit" value="Excluir">Excluir</button>
-                    <button class="btn btn-primary" name="btnOperacao" type="submit" value="Cancelar">Cancelar</button>
-
+                    <p>
+                        <input type="submit" name="btnOperacao" value="Excluir" /> &nbsp;
+                        <input type="submit" name="btnOperacao" value="Cancelar" /> &nbsp;
+                    </p>
                 </form>
-                
-                </div>
-                <br>
-
 
             </div>
+            <br>
         </div>
+    </div>
 </body>
 
 </html>

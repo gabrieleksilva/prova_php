@@ -47,19 +47,19 @@ if (file_exists($nomeArquivo)) {
                     <form action="processamento.php" method="REQUEST">
                         <div class="form-group">
                             <label for="nomeCliente">Nome do cliente:</label>
-                            <input type="text" class="form-control" name="txtNomeCliente" id="nomeCliente" placeholder="Digite o seu nome..">
+                            <input type="text" class="form-control" name="txtNomeCliente" placeholder="Digite o seu nome..">
                         </div>
                         <div class="form-group">
                             <label for="telefone">Telefone:</label>
-                            <input class="form-control" type="text" name="txtTelefone" id="telefone" placeholder="Digite o telefone..">
+                            <input class="form-control" type="text" name="txtTelefone" placeholder="Digite o telefone..">
                         </div>
                         <div class="form-group">
                             <label for="nomeAnimal">Nome do animal:</label>
-                            <input type="text" class="form-control" name="txtNomeAnimal" id="nomeAnimal" placeholder="Digite o nome do animal..">
+                            <input type="text" class="form-control" name="txtNomeAnimal" placeholder="Digite o nome do animal..">
                         </div>
                         <div class="form-group">
                             <label for="idadeAnimal">Idade do animal:</label>
-                            <input type="number" class="form-control" name="numIdadeAnimal" id="idadeAnimal" placeholder="Digite a idade..">
+                            <input type="number" class="form-control" name="numIdadeAnimal" placeholder="Digite a idade..">
                         </div>
                         <div class="form-group">
                             <label for="atendimento">Atendimento de interesse</label>
@@ -87,17 +87,16 @@ if (file_exists($nomeArquivo)) {
 
                         <div class="form-group">
                             <label for="sugestoesReclamacoes">Sugestões ou reclamações:</label>
-                            <textarea  class="form-control" name="txtAreaSugestoesReclamacoes"> </textarea>
+                            <textarea  class="form-control" name="txtAreaSugestoesReclamacoes"></textarea>
                         </div>
                         <br>
-                        <button class="btn btn-primary" name="btnOperacao" type="reset" value="Reset">Apagar tudo</button>
-                        <button class="btn btn-primary" name="btnOperacao" type="submit" value="Submit">Submeter</button>
-
-
+                        <p>
+                            <input class="btn btn-primary"type="submit" name="btnOperacao" value="inserir" /> &nbsp;
+                            <input class="btn btn-primary"type="reset" name="btnOperacao" value="Apagar Tudo" /> &nbsp;
+                        </p>
                         <fieldset>
 
                             <legend>Clientes cadastrados</legend>
-
                             <table>
                                 <tr>
                                     <th>Nome cliente</th>
@@ -112,53 +111,41 @@ if (file_exists($nomeArquivo)) {
                                 </tr>
 
                                 <?php
+                                    if (!empty($petShop)) {
+                                        //$petShopKey essa váriavel que me passa o índice
+                                        foreach ($petShop as $petShopKey => $petShopValor) {
+                                            echo "Índice: " . $petShopKey . "<br>";
+                                             echo "nomeCliente: " . $petShopValor['NomeCliente'] . "<br>";
+                                             echo "telefone: " . $petShopValor['Telefone'] . "<br>";
+                                             echo "nomeAnimal: " . $petShopValor['NomeAnimal'] . "<br>";
+                                             echo "idadeAnimal: " . $petShopValor['NumIdadeAnimal'] . "<br>";
+                                             echo "atendimento: " . $petShopValor['Atendimento'] . "<br>";
+                                             echo "pet: " . $petShopValor['Pet'] . "<br>";
+                                             echo "sugestoesReclamacoes: " . $petShopValor['SugestoesReclamacoes'] . "<br>";
 
-                                if (!empty($petShop)) {
-                                    //$petShopKey essa váriavel que me passa o índice
-                                    foreach ($petShop as $petShopKey => $petShopValor) {
-                                        //echo "Índice: " . $petShopKey . "<br>";
-                                        //  echo "nomeCliente: " . $petShopValor['NomeCliente'] . "<br>";
-                                        //  echo "telefone: " . $petShopValor['Telefone'] . "<br>";
-                                        //  echo "nomeAnimal: " . $petShopValor['NomeAnimal'] . "<br>";
-                                        //  echo "idadeAnimal: " . $petShopValor['NumIdadeAnimal'] . "<br>";
-                                        //  echo "atendimento: " . $petShopValor['Atendimento'] . "<br>";
-                                        //  echo "pet: " . $petShopValor['Pet'] . "<br>";
-                                        //  echo "sugestoesReclamacoes: " . $petShopValor['SugestoesReclamacoes'] . "<br>";
-
-                                        echo "<tr>";
-                                        //echo "<td>$petShopKey</td> ";
-                                        echo "<td>" . $petShopValor['NomeCliente'] . "</td> ";
-                                        echo "<td>" . $petShopValor['Telefone'] . "</td> ";
-                                        echo "<td>" . $petShopValor['NomeAnimal'] . "</td> ";
-                                        echo "<td>" . $petShopValor['NumIdadeAnimal'] . "</td> ";
-                                        echo "<td>" . $petShopValor['Atendimento'] . "</td> ";
-                                        echo "<td>" . $petShopValor['Pet'] . "</td> ";
-                                        echo "<td>" . $petShopValor['SugestoesReclamacoes'] . "</td> ";
-                                        //passando dados para outra página ? nessa estrutura chave/valor
-                                        echo "<td><a href='alterar.php?indice=$petShopKey'>Alterar</a></td> ";
-                                        echo "<td><a href='excluir.php?indice=$petShopKey'>Excluir</a>-</td> ";
-                                        echo "</tr>";
+                                            echo "<tr>";
+                                            //echo "<td>$petShopKey</td> ";
+                                            echo "   <td>" . $petShopValor['NomeCliente'] . "</td> ";
+                                            echo "   <td>" . $petShopValor['Telefone'] . "</td> ";
+                                            echo "   <td>" . $petShopValor['NomeAnimal'] . "</td> ";
+                                            echo "   <td>" . $petShopValor['NumIdadeAnimal'] . "</td> ";
+                                            echo "   <td>" . $petShopValor['Atendimento'] . "</td> ";
+                                            echo "   <td>" . $petShopValor['Pet'] . "</td> ";
+                                            echo "   <td>" . $petShopValor['SugestoesReclamacoes'] . "</td> ";
+                                            //passando dados para outra página ? nessa estrutura chave/valor
+                                            echo "   <td><a href='alterar.php?indice=$petShopKey'>Alterar</a></td> ";
+                                            echo "   <td><a href='excluir.php?indice=$petShopKey'>Excluir</a>-</td> ";
+                                            echo "</tr>";
+                                        }
                                     }
-                                }
-
-
                                 ?>
                             </table>
-
                         </fieldset>
-
                     </form>
                 </div>
                 <br>
-
-
             </div>
         </div>
-
-        <!-- <div class="col-3 mb-2 bg-info font-weight">
-                <p class="font-weight-bold">Aqui você e a família terão: </p>
-                <p class="font-weight-normal"> A XXXX-Pet vem oferecendo os melhores serviços para seu pet, sempre buscando novidades em estética animal, acessórios. Um PetShop completo para estética, saúde e lazer do seu melhor amigo. Sabemos que cada vez mais, os animais de estimação assumem um papel primordial na composição familiar. E para cuidar com carinho deles, oferecemos uma ótima infraestrutura e equipamentos de última geração para a saúde e bem estar dos nossos pets.</p>
-            </div> -->
     </div>
     </div>
 </body>

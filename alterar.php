@@ -17,7 +17,6 @@
             $indice = $_REQUEST["indice"];
         }
     }
-    //echo "Índice: $indice <br>";
 
     $nomeArquivo = "C:\xTemp\PetShop.json";
 
@@ -27,10 +26,9 @@
         //Recupera os dados
         $petShopJSON = file_get_contents($nomeArquivo);
 
-        //Converter JSON em PHP
-        $petShop = json_decode($petShopJSON, true);
     }
-
+    //Converter JSON em PHP
+    $petShop = json_decode($petShopJSON, true);
 
     $nomeCliente = $petShop[$indice]['NomeCliente'];
     $telefone = $petShop[$indice]['Telefone'];
@@ -39,15 +37,6 @@
     $atendimento = $petShop[$indice]['Atendimento'];
     $pet = $petShop[$indice]['Pet'];
     $sugestoesReclamacoes = $petShop[$indice]['SugestoesReclamacoes'];
-
-
-    // echo "Nome cliente: $nomeCliente <br>";
-    // echo "Telefone: $telefone <br>";
-    // echo "Nome animal: $nomeAnimal <br>";
-    // echo "Idade animal: $idadeAnimal <br>";
-    // echo "Atendimento: $atendimento <br>";
-    // echo "Pet: $pet <br>";
-    // echo "Sugestoes Reclamacoes: $sugestoesReclamacoes <br>";
 ?>
 
 
@@ -74,7 +63,10 @@
         <div class="card">
             <div class="card-body">
                 <h2>Alteração de cadastro</h2>
-                <form action="processamento.php" method="GET">
+                <form action="processamento.php" method="REQUEST">
+                <p>
+                    Índice &ensp;<input type="text" name="txtIndice" readonly value="<?php echo $indice; ?>">
+                </p>
                     <div class="form-group">
                         <label for="nomeCliente">Nome do cliente:</label>
                         <input type="text" class="form-control" name="txtNomeCliente" id="nomeCliente" value= "<?php echo $nomeCliente; ?>">
@@ -119,14 +111,14 @@
                         <textarea  class="form-control" name="txtAreaSugestoesReclamacoes" value= ""> <?php echo $sugestoesReclamacoes; ?> </textarea>
                     </div>
                     <br>
-                    <button class="btn btn-primary" name="btnOperacao" type="submit" value="Reset">Alterar</button>
-                    <button class="btn btn-primary" name="btnOperacao" type="submit" value="Cancelar">Cancelar</button>
+                    <p>
+                        <input class="btn btn-primary" type="submit" name="btnOperacao" value="Alterar" /> &nbsp;
+                        <input class="btn btn-primary" type="submit" name="btnOperacao" value="Cancelar" /> &nbsp;
+                    </p>
 
                 </form>
             </div>
             <br>
-
-
         </div>
     </div>
 </body>
