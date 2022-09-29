@@ -46,7 +46,7 @@
     <meta charset="utf-8" />
     <title>Alterar cadastro</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script> -->
 
     <style>         
        table {
@@ -86,15 +86,15 @@
                     <div class="form-group">
                         <label for="atendimento">Atendimento de interesse</label>
                         <select name="selectAtendimento">
-                            <option <?php echo ($atendimento == "Banho_&_Tosa") ? "selected" : null; ?> value="Banho_&_Tosa">Banho & Tosa</option>
-                            <option <?php echo ($atendimento == "Corte_de_unhas") ? "selected" : null; ?> value="Corte_de_unhas">Corte de unhas</option>
-                            <option <?php echo ($atendimento == "Desembaraçamento_de_pelos") ? "selected" : null; ?> value="Desembaraçamento_de_pelos">Desembaraçamento de pelos</option>
-                            <option <?php echo ($atendimento == "Escovação_de_dentes") ? "selected" : null; ?> value="Escovação_de_dentes">Escovação de dentes</option>
+                            <option <?php echo ($atendimento == "Banho & Tosa") ? "selected" : null; ?> value="Banho & Tosa">Banho & Tosa</option>
+                            <option <?php echo ($atendimento == "Corte de unhas") ? "selected" : null; ?> value="Corte de unhas">Corte de unhas</option>
+                            <option <?php echo ($atendimento == "Desembaraçamento de pelos") ? "selected" : null; ?> value="Desembaraçamento de pelos">Desembaraçamento de pelos</option>
+                            <option <?php echo ($atendimento == "Escovação de dentes") ? "selected" : null; ?> value="Escovação de dentes">Escovação de dentes</option>
                             <option <?php echo ($atendimento == "Hidratação") ? "selected" : null; ?> value="Hidratação">Hidratação</option>
-                            <option <?php echo ($atendimento == "Higienização_completa") ? "selected" : null; ?> value="Higienização_completa">Higienização completa</option>
-                            <option <?php echo ($atendimento == "Limpeza_de_ouvido") ? "selected" : null; ?> value="Limpeza_de_ouvido">Limpeza de ouvido</option>
-                            <option <?php echo ($atendimento == "Tingimento_dos_pelos") ? "selected" : null; ?> value="Tingimento_dos_pelos">Tingimento dos pelos</option>
-                            <option <?php echo ($atendimento == "Tosa_higiênica") ? "selected" : null; ?> value="Tosa_higiênica">Tosa higiênica</option>
+                            <option <?php echo ($atendimento == "Higienização completa") ? "selected" : null; ?> value="Higienização completa">Higienização completa</option>
+                            <option <?php echo ($atendimento == "Limpeza de ouvido") ? "selected" : null; ?> value="Limpeza de ouvido">Limpeza de ouvido</option>
+                            <option <?php echo ($atendimento == "Tingimento dos pelos") ? "selected" : null; ?> value="Tingimento dos pelos">Tingimento dos pelos</option>
+                            <option <?php echo ($atendimento == "Tosa higiênica") ? "selected" : null; ?> value="Tosa higiênica">Tosa higiênica</option>
                         </select>
                     </div>
                     <div class="form-group">

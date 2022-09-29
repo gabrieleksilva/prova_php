@@ -211,13 +211,6 @@ elseif ($operacao=="Excluir"){
     //----------------------------------------------
 
     unset($petShop[$indice]);
-    //comando que exclui do vetor
-    // if($petShop[$indice]==0){
-    //     array_pop($petShop);
-    // } else {
-    //     unset($petShop[$indice]);
-    // }
-     
 
     //Converter PHP para Json
     $petShopJSON = json_encode($petShop);
