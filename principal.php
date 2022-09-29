@@ -39,14 +39,15 @@ if (file_exists($nomeArquivo)) {
     <div class="container">
         <div class="row">
             <div class="col-2">
-                1 of 3
+                
+                <img src="imagens_php/img-1.jpg" height="300" width="550">
             </div>
             <div class="col-8">
-                2 of 3
-                <div class=" mx-auto" style="width: 200px; ">
+                
+                <div>
                     <header>
-                        <h1>PetShop</h1><br>
-                        <h4>Mais que um pet shop.<br>Um estilo de vida</h4>
+                        <h1 class="text-center">PetShop</h1><br>
+                        <h4 class="text-center">Mais que um pet shop.<br>Um estilo de vida</h4>
                     </header>
                 </div>
                 <h2>Formulário de cadastro</h2>
@@ -138,7 +139,6 @@ if (file_exists($nomeArquivo)) {
                 </table>
             </div>
             <div class="col-2">
-                3 of 3
             </div>
         </div>
     </div>
