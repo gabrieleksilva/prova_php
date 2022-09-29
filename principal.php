@@ -54,20 +54,20 @@ if (file_exists($nomeArquivo)) {
                 <form action="processamento.php" method="REQUEST">
                     <div class="form-group">
                         <label for="nomeCliente">Nome do cliente:</label>
-                        <input type="text" class="form-control" name="txtNomeCliente" placeholder="Digite o seu nome.." required>
+                        <input type="text" class="form-control" name="txtNomeCliente" placeholder="Digite o seu nome.." >
 
                     </div>
                     <div class="form-group">
                         <label for="telefone">Telefone:</label>
-                        <input class="form-control" type="text" name="txtTelefone" placeholder="Digite o telefone.." required>
+                        <input class="form-control" type="text" name="txtTelefone" placeholder="Digite o telefone.." >
                     </div>
                     <div class="form-group">
                         <label for="nomeAnimal">Nome do animal:</label>
-                        <input type="text" class="form-control" name="txtNomeAnimal" placeholder="Digite o nome do animal.." required>
+                        <input type="text" class="form-control" name="txtNomeAnimal" placeholder="Digite o nome do animal.." >
                     </div>
                     <div class="form-group">
                         <label for="idadeAnimal">Idade do animal:</label>
-                        <input type="number" class="form-control" name="numIdadeAnimal" placeholder="Digite a idade.." required>
+                        <input type="number" class="form-control" name="numIdadeAnimal" placeholder="Digite a idade.." >
                     </div>
                     <div class="form-group">
                         <label for="atendimento">Atendimento de interesse</label>

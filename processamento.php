@@ -14,57 +14,33 @@ $sugestoesReclamacoes = "";
 
 $nomeArquivo = "C:\xTemp\PetShop.json";
 
-if(isset($_REQUEST["btnOperacao"])){
-    if(!empty($_REQUEST["btnOperacao"])){
-        $operacao = $_REQUEST["btnOperacao"];
+function Requests($ValueDoCampo){
+    if(isset($_REQUEST[$ValueDoCampo])){
+        if(!empty($_REQUEST[$ValueDoCampo])){
+            $varDoCampo = $_REQUEST[$ValueDoCampo];
+            return $varDoCampo;
+        }
     }
+    
 }
-
-if(isset($_REQUEST["txtNomeCliente"])){
-    if(!empty($_REQUEST["txtNomeCliente"])){
-        $nomeCliente = $_REQUEST["txtNomeCliente"];
-    }
-}
-
-if(isset($_REQUEST["txtTelefone"])){
-    if(!empty($_REQUEST["txtTelefone"])){
-        $telefone = $_REQUEST["txtTelefone"];
-    }
-}
-
-if(isset($_REQUEST["txtNomeAnimal"])){
-    if(!empty($_REQUEST["txtNomeAnimal"])){
-        $nomeAnimal = $_REQUEST["txtNomeAnimal"];
-    }
-}
-
-if(isset($_REQUEST["numIdadeAnimal"])){
-    if(!empty($_REQUEST["numIdadeAnimal"])){
-        $idadeAnimal = $_REQUEST["numIdadeAnimal"];
-    }
-}
-
-if(isset($_REQUEST["selectAtendimento"])){
-    if(!empty($_REQUEST["selectAtendimento"])){
-        $atendimento = $_REQUEST["selectAtendimento"];
-    }
-}
-
-if(isset($_REQUEST["rdoPet"])){
-    if(!empty($_REQUEST["rdoPet"])){
-        $pet = $_REQUEST["rdoPet"];
-    }
-}
-if(isset($_REQUEST["txtAreaSugestoesReclamacoes"])){
-    if(!empty($_REQUEST["txtAreaSugestoesReclamacoes"])){
-        $sugestoesReclamacoes = $_REQUEST["txtAreaSugestoesReclamacoes"];
-    }
-}
-if(isset($_REQUEST["txtIndice"])){
-    if(!empty($_REQUEST["txtIndice"])){
-        $indice = $_REQUEST["txtIndice"];
-    }
-}
+// verifica o botao
+$operacao = Requests("btnOperacao");
+// verifica o txtNomeCliente
+$nomeCliente = Requests("txtNomeCliente");
+// verifica o txtTelefone
+$telefone = Requests("txtTelefone");
+// verifica o txtNomeAnimal
+$nomeAnimal = Requests("txtNomeAnimal");
+// verifica o numIdadeAnimal
+$idadeAnimal = Requests("numIdadeAnimal");
+// verifica o numIdadeAnimal
+$atendimento = Requests("selectAtendimento");
+// verifica o rdoPet
+$pet = Requests("rdoPet");
+// verifica o txtAreaSugestoesReclamacoes
+$sugestoesReclamacoes = Requests("txtAreaSugestoesReclamacoes");
+// verifica o txtIndice
+$indice = Requests("txtIndice");
 
 //----------------------------------------------
 // PROCESSAR OS DADOS
