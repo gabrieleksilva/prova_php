@@ -33,10 +33,16 @@ if (file_exists($nomeArquivo)) {
             height: 400px;
             object-fit: cover;
         }
+        body{
+            background-color:#FDF5E6;
+        }
+        h2,h5{
+            text-align: center;
+        }
     </style>
 </head>
 
-<body  style="background-color:#FDF5E6">
+<body>
     <div class="container-fluid">
         <header>
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" >
@@ -93,9 +99,9 @@ if (file_exists($nomeArquivo)) {
                         <h4 class="text-center">Mais que um pet shop.<br>Um estilo de vida</h4>
                     </header>
                 </div>
-                <h2>Formulário de cadastro</h2>
-                <form action="processamento.php" method="REQUEST">
-                    
+                
+                <form action="processamento.php" method="REQUEST" class="border border-dark">
+                    <h2>Formulário de cadastro</h2>
                     <div class="form-group">
                         <label for="nomeCliente">Nome do cliente:</label>
                         <input type="text" class="form-control" name="txtNomeCliente" placeholder="Digite o seu nome..">
