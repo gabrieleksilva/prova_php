@@ -69,16 +69,17 @@ if (file_exists($nomeArquivo)) {
         </header>
         <div class="row">
             <div class="col-2 mb-2">
+                <br><br><br><br><br><br>
                 <h5 >Aqui você encontra:</h5>
                 <div class="text-white">
                     <ul class="list-group">
 
-                        <li class="list-group-item active">Acessórios</li>
-                        <li class="list-group-item active">Brinquedos</li>
-                        <li class="list-group-item active">Camas</li>
-                        <li class="list-group-item active">Casinhas</li>
-                        <li class="list-group-item active">Farmácia</li>
-                        <li class="list-group-item active">Higiene</li>
+                        <li class="list-group-item list-group-item-warning">Acessórios</li>
+                        <li class="list-group-item list-group-item-warning">Brinquedos</li>
+                        <li class="list-group-item list-group-item-warning">Camas</li>
+                        <li class="list-group-item list-group-item-warning">Casinhas</li>
+                        <li class="list-group-item list-group-item-warning">Farmácia</li>
+                        <li class="list-group-item list-group-item-warning">Higiene</li>
                     </ul>
                 </div>
                 <div class="text-black ">
@@ -95,8 +96,8 @@ if (file_exists($nomeArquivo)) {
 
                 <div>
                     <header>
-                        <h1 class="text-center">PetShop</h1><br>
-                        <h4 class="text-center">Mais que um pet shop.<br>Um estilo de vida</h4>
+                        <br><h1 class="text-center">Pet Shop</h1><br>
+                        <h4 class="text-center">Mais que um pet shop. Um estilo de vida</h4><br>
                     </header>
                 </div>
                 
