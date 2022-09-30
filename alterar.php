@@ -45,8 +45,10 @@ $sugestoesReclamacoes = $petShop[$indice]['SugestoesReclamacoes'];
 <head>
     <meta charset="utf-8" />
     <title>Alterar cadastro</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
     <style>
         table {
@@ -63,10 +65,12 @@ $sugestoesReclamacoes = $petShop[$indice]['SugestoesReclamacoes'];
         h2 {
             text-align: center;
         }
-        body{
-            background-color:#FDF5E6;
+
+        body {
+            background-color: #FDF5E6;
         }
-        form{
+
+        form {
             padding: 10px;
         }
     </style>
@@ -132,8 +136,8 @@ $sugestoesReclamacoes = $petShop[$indice]['SugestoesReclamacoes'];
                             </div>
                             <br>
                             <p>
-                                <input class="btn btn-success" type="submit" name="btnOperacao" value="Alterar" /> &nbsp;
-                                <input class="btn btn-danger" type="submit" name="btnOperacao" value="Cancelar" /> &nbsp;
+                                <button class="btn btn-success" type="submit" name="btnOperacao" value="Alterar">Alterar</button> &nbsp;
+                                <button class="btn btn-danger" type="submit" name="btnOperacao" value="Cancelar">Cancelar</button> &nbsp;
                             </p>
 
                         </form>

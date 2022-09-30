@@ -22,39 +22,44 @@ if (file_exists($nomeArquivo)) {
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-    <style>
-        table,
-        td,
-        th {
-            border: 1px solid black;
-            text-align: center;
-            background-size: auto;
-            padding: 10px;
-        }        
-        img {
-            width: 300px;
-            height: 400px;
-            object-fit: cover;
-        }
-        body{
-            background-color:#FDF5E6;
-        }
-        h2,h5{
-            text-align: center;
-        }
-        form{
-            padding: 40px;
-        }
-    </style>
+<style>
+    table,
+    td,
+    th {
+        border: 1px solid black;
+        text-align: center;
+        background-size: auto;
+        padding: 10px;
+    }
+
+    img {
+        width: 300px;
+        height: 400px;
+        object-fit: cover;
+    }
+
+    body {
+        background-color: #FDF5E6;
+    }
+
+    h2,
+    h5 {
+        text-align: center;
+    }
+
+    form {
+        padding: 40px;
+    }
+</style>
 </head>
 
 <body>
     <div class="container-fluid">
         <header>
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" >
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="imagens_php/animais.jpg" alt="First slide" >
+                        <img class="d-block w-100" src="imagens_php/animais.jpg" alt="First slide">
                     </div>
                     <div class="carousel-item">
                         <img class="d-block w-100" src="imagens_php/passaros.png" alt="Second slide">
@@ -76,7 +81,7 @@ if (file_exists($nomeArquivo)) {
         <div class="row">
             <div class="col-2 mb-2">
                 <br><br><br><br><br><br>
-                <h5 >Aqui você encontra:</h5>
+                <h5>Aqui você encontra:</h5>
                 <div class="text-white">
                     <ul class="list-group">
 
@@ -102,11 +107,12 @@ if (file_exists($nomeArquivo)) {
 
                 <div>
                     <header>
-                        <br><h1 class="text-center">Pet Shop</h1><br>
+                        <br>
+                        <h1 class="text-center">Pet Shop</h1><br>
                         <h4 class="text-center">Mais que um pet shop. Um estilo de vida</h4><br>
                     </header>
                 </div>
-                
+
                 <form action="processamento.php" method="REQUEST" class="border border-dark">
                     <h2>Formulário de cadastro</h2>
                     <div class="form-group">
@@ -154,8 +160,8 @@ if (file_exists($nomeArquivo)) {
                     </div>
                     <div class="form-group">
                         <p>
-                            <input class="btn btn-primary" type="submit" name="btnOperacao" value="inserir" /> &nbsp;
-                            <input class="btn btn-primary" type="reset" name="btnOperacao" value="limpar" /> &nbsp;
+                            <button class="btn btn-success" type="submit" name="btnOperacao" value="inserir">Inserir</button> &nbsp;
+                            <button class="btn btn-secondary" type="reset" name="btnOperacao" value="limpar">Limpar</button> &nbsp;
                         </p>
                     </div>
                 </form>
