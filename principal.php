@@ -27,6 +27,9 @@ if (file_exists($nomeArquivo)) {
         td,
         th {
             border: 1px solid black;
+            text-align: center;
+            background-size: auto;
+            padding: 10px;
         }        
         img {
             width: 300px;
@@ -38,6 +41,9 @@ if (file_exists($nomeArquivo)) {
         }
         h2,h5{
             text-align: center;
+        }
+        form{
+            padding: 40px;
         }
     </style>
 </head>
