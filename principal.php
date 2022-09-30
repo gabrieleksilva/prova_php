@@ -15,35 +15,29 @@ if (file_exists($nomeArquivo)) {
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<head>
-    <meta charset="utf-8">
-    <title>Pet shop</title>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<meta charset="utf-8">
+<title>Pet shop</title>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
     <style>
-        table {
-            width: 500px;
-            border-collapse: collapse;
-        }
-
         table,
         td,
         th {
             border: 1px solid black;
         }        
         img {
-            width: 450px;
-            height: 550px;
-            object-fit: cover;
+            width: 300px;
+            height: 400px;
+            object-fit: fill;
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <header>
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" >
                 <div class="carousel-inner">
@@ -51,7 +45,7 @@ if (file_exists($nomeArquivo)) {
                         <img class="d-block w-100" src="imagens_php/animais.jpg" alt="First slide" >
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="imagens_php/passaros.jpg" alt="Second slide">
+                        <img class="d-block w-100" src="imagens_php/passaros.png" alt="Second slide">
                     </div>
                     <div class="carousel-item">
                         <img class="d-block w-100" src="imagens_php/coelho.jpg" alt="Third slide">
@@ -68,12 +62,7 @@ if (file_exists($nomeArquivo)) {
             </div>
         </header>
         <div class="row">
-
-            <div class="col-1">
-
-                <!-- <img src="imagens_php/img-1.jpg" height="300" width="550"> -->
-            </div>
-            <div class="col-2 mb-2 bg-secondary text-white">
+            <div class="col-2 mb-2  text-white">
                 <h5>Aqui você encontra:</h5>
                 <ul class="list-group">
 
@@ -189,7 +178,6 @@ if (file_exists($nomeArquivo)) {
                     ?>
                 </table>
             </div>
-
         </div>
     </div>
 
