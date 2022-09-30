@@ -50,6 +50,9 @@ if (file_exists($nomeArquivo)) {
     form {
         padding: 40px;
     }
+    table{
+        background-color: white;
+    }
 </style>
 </head>
 
