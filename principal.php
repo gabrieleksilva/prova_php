@@ -33,6 +33,11 @@ if (file_exists($nomeArquivo)) {
         td,
         th {
             border: 1px solid black;
+        }        
+        img {
+            width: 450px;
+            height: 550px;
+            object-fit: cover;
         }
     </style>
 </head>
@@ -40,10 +45,10 @@ if (file_exists($nomeArquivo)) {
 <body>
     <div class="container">
         <header>
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" >
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="imagens_php/animais.jpg" alt="First slide">
+                        <img class="d-block w-100" src="imagens_php/animais.jpg" alt="First slide" >
                     </div>
                     <div class="carousel-item">
                         <img class="d-block w-100" src="imagens_php/passaros.jpg" alt="Second slide">
@@ -97,6 +102,7 @@ if (file_exists($nomeArquivo)) {
                 </div>
                 <h2>Formulário de cadastro</h2>
                 <form action="processamento.php" method="REQUEST">
+                    
                     <div class="form-group">
                         <label for="nomeCliente">Nome do cliente:</label>
                         <input type="text" class="form-control" name="txtNomeCliente" placeholder="Digite o seu nome..">
