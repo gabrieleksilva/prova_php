@@ -45,7 +45,7 @@ $sugestoesReclamacoes = $petShop[$indice]['SugestoesReclamacoes'];
     <title>Excluir cadastro</title>
 </head>
 
-<body>
+<body style="background-color:#FDF5E6">
     <div class="col-6 mb-2 bg-warning text-dark">
         <div class="card">
             <div class="card-body">
