@@ -31,12 +31,12 @@ if (file_exists($nomeArquivo)) {
         img {
             width: 300px;
             height: 400px;
-            object-fit: fill;
+            object-fit: cover;
         }
     </style>
 </head>
 
-<body>
+<body  style="background-color:#FDF5E6">
     <div class="container-fluid">
         <header>
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" >
@@ -62,24 +62,28 @@ if (file_exists($nomeArquivo)) {
             </div>
         </header>
         <div class="row">
-            <div class="col-2 mb-2  text-white">
-                <h5>Aqui você encontra:</h5>
-                <ul class="list-group">
+            <div class="col-2 mb-2">
+                <h5 >Aqui você encontra:</h5>
+                <div class="text-white">
+                    <ul class="list-group">
 
-                    <li class="list-group-item active">Acessórios</li>
-                    <li class="list-group-item active">Brinquedos</li>
-                    <li class="list-group-item active">Camas</li>
-                    <li class="list-group-item active">Casinhas</li>
-                    <li class="list-group-item active">Farmácia</li>
-                    <li class="list-group-item active">Higiene</li>
-                </ul>
-                <h4>Nossos objetivos</h4>
-                <ul>
-                    <li>Ser referência de serviços e inovação em Pet Shop.</li>
-                    <li>Trabalharemos sempre para manter seu pet feliz e saudável</li>
-                    <li>Profissionais altamente qualificados para melhor atender seu pet</li>
+                        <li class="list-group-item active">Acessórios</li>
+                        <li class="list-group-item active">Brinquedos</li>
+                        <li class="list-group-item active">Camas</li>
+                        <li class="list-group-item active">Casinhas</li>
+                        <li class="list-group-item active">Farmácia</li>
+                        <li class="list-group-item active">Higiene</li>
+                    </ul>
+                </div>
+                <div class="text-black ">
+                    <h4>Nossos objetivos</h4>
+                    <ul>
+                        <li>Ser referência de serviços e inovação em Pet Shop.</li>
+                        <li>Trabalharemos sempre para manter seu pet feliz e saudável</li>
+                        <li>Profissionais altamente qualificados para melhor atender seu pet</li>
 
-                </ul>
+                    </ul>
+                </div>
             </div>
             <div class="col-8">
 
